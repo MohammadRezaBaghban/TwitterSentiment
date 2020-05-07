@@ -13,12 +13,16 @@ namespace TwitterSentiment
         private MongoClient client;
         private IMongoDatabase database;
         private static IMongoCollection<BsonDocument> collection;
+        private static IMongoCollection<Tweet> collection2;
+
 
         private MongoDBConnection()
         {
             client = new MongoClient("");
             database = client.GetDatabase("Tweets");
             collection = database.GetCollection<BsonDocument>("Sentiment");
+            collection2 = database.GetCollection<Tweet>("Sentiment");
+
         }
 
         public static MongoDBConnection GetConnectionObject()
@@ -36,17 +40,21 @@ namespace TwitterSentiment
 
         public async void InsertToDatabase(ICollection<Tweet> tweets)
         {
-            
-
             foreach (var tweet in tweets)
             {
-                var document = new BsonDocument {
-                    { "tweetID", $"{tweet.Id}" },
-                    { "TweetText",$"{tweet.Text}" },
-                    { "SentimentScore", tweet.SentimentScore }
-                };
+                var filter = Builders<BsonDocument>.Filter.Eq("tweetID", tweet.tweetId);
+                var tweetDocument = collection.Find(filter).FirstOrDefault();
+                if (tweetDocument==null)
+                {
+                    var document = new BsonDocument {
+                        { "tweetID", $"{tweet.tweetId}" },
+                        { "TweetText",$"{tweet.TweetText}" },
+                        { "SentimentScore", tweet.SentimentScore }
+                    };
+                    collection.InsertOne(document);
 
-                await collection.InsertOneAsync(document);
+                }
+
             }
 
             

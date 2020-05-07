@@ -6,10 +6,10 @@ using Newtonsoft.Json;
 namespace TwitterSentiment
 {
     public class Tweet {
-        public Tweet(string id, string txt, string score) => (this.Id, this.Text, this.SentimentScore) = (id, txt, score);
+        public Tweet(string id, string txt, string score) => (this.tweetId, this.TweetText, this.SentimentScore) = (id, txt, score);
 
-        public string Id;
-        public string Text;
+        public string tweetId;
+        public string TweetText;
         public string SentimentScore;
 
         public static List<Tweet> ParseJsonToTweetObjects(string input)
