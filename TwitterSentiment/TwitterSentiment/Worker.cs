@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Web;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using MongoDB.Driver;
 using Newtonsoft.Json;
 
 namespace TwitterSentiment
@@ -46,10 +47,12 @@ namespace TwitterSentiment
                 
                 var JsonString = await response.Content.ReadAsStringAsync();
                 var tweets = Tweet.ParseJsonToTweetObjects(JsonString);
+                var dbConnection = MongoDBConnection.GetConnectionObject();
 
                 if (response.IsSuccessStatusCode)
                 {
-                    _logger.LogInformation($"The website is up. Status code {response.StatusCode}");
+                    dbConnection.InsertToDatabase(tweets);
+                    _logger.LogInformation($"Tweets has been inserted");
                 }
                 else
                 {
@@ -59,6 +62,7 @@ namespace TwitterSentiment
             }
         }
 
+       
         
     }
 }
