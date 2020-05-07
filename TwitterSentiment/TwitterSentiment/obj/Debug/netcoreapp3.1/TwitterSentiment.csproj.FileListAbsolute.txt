@@ -43,4 +43,6 @@ C:\Mrbh\Documents\Bussines\Application Documents\XaasFarm\TwitterSentiment\Twitt
 C:\Mrbh\Documents\Bussines\Application Documents\XaasFarm\TwitterSentiment\TwitterSentiment\bin\Debug\netcoreapp3.1\Azure.AI.TextAnalytics.dll
 C:\Mrbh\Documents\Bussines\Application Documents\XaasFarm\TwitterSentiment\TwitterSentiment\bin\Debug\netcoreapp3.1\Azure.Core.dll
 C:\Mrbh\Documents\Bussines\Application Documents\XaasFarm\TwitterSentiment\TwitterSentiment\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Mrbh\Documents\Bussines\Application Documents\XaasFarm\TwitterSentiment\TwitterSentiment\bin\Debug\netcoreapp3.1\System.Text.Encodings.Web.dll
+C:\Mrbh\Documents\Bussines\Application Documents\XaasFarm\TwitterSentiment\TwitterSentiment\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Mrbh\Documents\Bussines\Application Documents\XaasFarm\TwitterSentiment\TwitterSentiment\obj\Debug\netcoreapp3.1\TwitterSentiment.csproj.CoreCompileInputs.cache
