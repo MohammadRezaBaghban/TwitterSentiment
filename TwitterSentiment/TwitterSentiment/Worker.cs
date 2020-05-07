@@ -58,7 +58,7 @@ namespace TwitterSentiment
                     }
                     else
                     {
-                        _logger.LogError($"The website is down. Status {response.StatusCode}");
+                        _logger.LogError($"Something Went Wrong");
                     }
 
                     await Task.Delay(3 * 60 * 1000, stoppingToken);
